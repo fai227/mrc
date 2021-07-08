@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Container from "../components/container";
 
 function Header() {
@@ -9,38 +11,50 @@ function Header() {
             <a href="https://www.doshisha.ac.jp/" target="_blank" rel="noopener noreferrer" className="mx-3 hover:underline">
               同志社大学
             </a>
-            <a href="/privacy" className="mx-3 hover:underline">
-              個人情報保護について
-            </a>
-            <a href="/sitemap" className="mx-3 hover:underline">
-              サイトマップ
-            </a>
-            <a href="/" className="mx-3 hover:underline">
-              Home
-            </a>
+            <Link href="/privacy">
+              <a className="mx-3 hover:underline">個人情報保護について</a>
+            </Link>
+            <Link href="/sitemap">
+              <a className="mx-3 hover:underline">サイトマップ</a>
+            </Link>
+            <Link href="/">
+              <a className="mx-3 hover:underline">Home</a>
+            </Link>
           </div>
         </Container>
       </div>
       <Container>
         <div className="flex flex-row">
-          <a href="/">
-            <img src="/header/logo.png" className="py-3 mx-2" />
-          </a>
-          <a href="/about" className="hover:opacity-50">
-            <img src="/header/menu01.png" />
-          </a>
-          <a href="/research" className="hover:opacity-50">
-            <img src="/header/menu02.png" />
-          </a>
-          <a href="/topics" className="hover:opacity-50">
-            <img src="/header/menu03.png" />
-          </a>
-          <a href="/publications" className="hover:opacity-50">
-            <img src="/header/menu04.png" />
-          </a>
-          <a href="/misc" className="hover:opacity-50">
-            <img src="/header/menu05.png" />
-          </a>
+          <Link href="/">
+            <a>
+              <img src="/header/logo.png" className="py-3 mx-2" />
+            </a>
+          </Link>
+          <Link href="/about">
+            <a className="hover:opacity-50">
+              <img src="/header/menu01.png" />
+            </a>
+          </Link>
+          <Link href="/research">
+            <a className="hover:opacity-50">
+              <img src="/header/menu02.png" />
+            </a>
+          </Link>
+          <Link href="/topics">
+            <a className="hover:opacity-50">
+              <img src="/header/menu03.png" />
+            </a>
+          </Link>
+          <Link href="/publications">
+            <a className="hover:opacity-50">
+              <img src="/header/menu04.png" />
+            </a>
+          </Link>
+          <Link href="/misc">
+            <a className="hover:opacity-50">
+              <img src="/header/menu05.png" />
+            </a>
+          </Link>
         </div>
       </Container>
     </header>

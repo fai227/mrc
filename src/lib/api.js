@@ -22,6 +22,22 @@ export async function getAllTopics() {
   return res.items;
 }
 
+export async function getAllPublications() {
+  const res = await client.getEntries({
+    content_type: "publications",
+    order: "-fields.year",
+  });
+  return res.items;
+}
+
+export async function getPublication(year) {
+  const res = await client.getEntries({
+    content_type: "publications",
+    "fields.year": year,
+  });
+  return res.items[0];
+}
+
 export async function getPage(slug) {
   const res = await client.getEntries({
     content_type: "pages",

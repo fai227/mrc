@@ -15,7 +15,7 @@
 }
 
 .markdown p {
-  @apply my-6;
+  @apply mx-2 my-6;
 }
 
 .markdown a {
@@ -27,7 +27,7 @@
 }
 
 .markdown ul {
-  @apply list-disc list-inside mx-2;
+  @apply list-disc list-outside ml-6 mx-2;
 }
 
 .markdown li {

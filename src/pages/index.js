@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 import { getLatestTopics } from "../lib/api";
 import { SITE_TITLE } from "../lib/constants";
@@ -18,9 +19,9 @@ function Home({ items }) {
       <div className="mx-2 my-4 border border-gray-300 rounded">
         <div className="p-3 border-b-4 border-gray-600 grid grid-cols-3">
           <p className="font-bold col-span-2">What's new</p>
-          <a href="/topics" className="text-right text-xs hover:underline">
-            過去の情報はこちらから
-          </a>
+          <Link href="/topics">
+            <a className="text-right text-xs hover:underline">過去の情報はこちらから</a>
+          </Link>
         </div>
       </div>
 
