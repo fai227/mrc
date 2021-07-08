@@ -24,7 +24,7 @@ function Header() {
       <Container>
         <div className="flex flex-row">
           <a href="/">
-            <img src="/header/logo.png" className="py-3" />
+            <img src="/header/logo.png" className="py-3 mx-2" />
           </a>
           <a href="/" className="hover:opacity-50">
             <img src="/header/menu01.png" />

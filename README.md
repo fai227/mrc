@@ -1,6 +1,11 @@
-# <https://kogepan.me>
+# Mobility Research Center
 
-This is my profile site.
+## Create `.env.local` file
+
+```.env.local
+NEXT_PUBLIC_CF_SPACE_ID=""
+NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN=""
+```
 
 ---
 

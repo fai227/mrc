@@ -3,7 +3,7 @@ import ScrollUp from "../components/scrollUp";
 
 function Footer() {
   return (
-    <footer className="pt-10 pb-24 bg-headerbg text-white text-xs">
+    <footer className="pt-8 pb-32 bg-headerbg text-white text-xs">
       <Container>
         <div className="grid grid-cols-3">
           <div className="col-span-2">
