@@ -18,8 +18,20 @@
   @apply my-6;
 }
 
+.markdown a {
+  @apply text-blue-600 hover:underline;
+}
+
 .markdown img {
   @apply px-6 mx-auto;
+}
+
+.markdown ul {
+  @apply list-disc list-inside mx-2;
+}
+
+.markdown li {
+  @apply my-2;
 }
 
 .markdown table {

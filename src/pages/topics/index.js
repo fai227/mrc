@@ -1,12 +1,12 @@
 import Head from "next/head";
 
-import { getAllTopics } from "../lib/api";
-import { SITE_TITLE } from "../lib/constants";
+import { getAllTopics } from "../../lib/api";
+import { SITE_TITLE } from "../../lib/constants";
 
-import Layout from "../components/layout";
-import List from "../components/list";
+import Layout from "../../components/layout";
+import List from "../../components/list";
 
-function Topics({ title, items }) {
+function Index({ title, items }) {
   return (
     <Layout>
       <Head>
@@ -26,4 +26,4 @@ export async function getStaticProps() {
   return { props: { title: title, items: items } };
 }
 
-export default Topics;
+export default Index;

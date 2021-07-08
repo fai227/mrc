@@ -9,10 +9,10 @@ function Header() {
             <a href="https://www.doshisha.ac.jp/" target="_blank" rel="noopener noreferrer" className="mx-3 hover:underline">
               同志社大学
             </a>
-            <a href="/" className="mx-3 hover:underline">
+            <a href="/privacy" className="mx-3 hover:underline">
               個人情報保護について
             </a>
-            <a href="/" className="mx-3 hover:underline">
+            <a href="/sitemap" className="mx-3 hover:underline">
               サイトマップ
             </a>
             <a href="/" className="mx-3 hover:underline">
