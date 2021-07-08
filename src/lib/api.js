@@ -22,6 +22,14 @@ export async function getAllTopics() {
   return res.items;
 }
 
+export async function getTopics(id) {
+  const res = await client.getEntries({
+    content_type: "topics",
+    "sys.id": id,
+  });
+  return res.items[0];
+}
+
 export async function getAllPublications() {
   const res = await client.getEntries({
     content_type: "publications",
