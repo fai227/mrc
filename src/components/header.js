@@ -6,7 +6,7 @@ function Header() {
       <div className="bg-headerbg text-white">
         <Container>
           <div className="flex flex-row-reverse py-3 text-xs mb-4">
-            <a href="/" className="mx-3 hover:underline">
+            <a href="https://www.doshisha.ac.jp/" target="_blank" rel="noopener noreferrer" className="mx-3 hover:underline">
               同志社大学
             </a>
             <a href="/" className="mx-3 hover:underline">
@@ -26,19 +26,19 @@ function Header() {
           <a href="/">
             <img src="/header/logo.png" className="py-3 mx-2" />
           </a>
-          <a href="/" className="hover:opacity-50">
+          <a href="/about" className="hover:opacity-50">
             <img src="/header/menu01.png" />
           </a>
-          <a href="/" className="hover:opacity-50">
+          <a href="/research" className="hover:opacity-50">
             <img src="/header/menu02.png" />
           </a>
-          <a href="/" className="hover:opacity-50">
+          <a href="/topics" className="hover:opacity-50">
             <img src="/header/menu03.png" />
           </a>
-          <a href="/" className="hover:opacity-50">
+          <a href="/publications" className="hover:opacity-50">
             <img src="/header/menu04.png" />
           </a>
-          <a href="/" className="hover:opacity-50">
+          <a href="/misc" className="hover:opacity-50">
             <img src="/header/menu05.png" />
           </a>
         </div>

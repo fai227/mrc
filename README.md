@@ -7,6 +7,12 @@ NEXT_PUBLIC_CF_SPACE_ID=""
 NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN=""
 ```
 
+## What's this?
+
+同志社大学 モビリティ研究センターの HP です。
+
+もともとは `PHP` で動いていた（レイアウト崩れ等が多発していた）ものを `Next.js(React)` ・ `contentful` にマイグレーションしました。
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

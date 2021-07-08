@@ -13,3 +13,19 @@ export async function getLatestTopics() {
   });
   return res.items;
 }
+
+export async function getAllTopics() {
+  const res = await client.getEntries({
+    content_type: "topics",
+    order: "-fields.date",
+  });
+  return res.items;
+}
+
+export async function getPage(slug) {
+  const res = await client.getEntries({
+    content_type: "pages",
+    "fields.slug": slug,
+  });
+  return res.items[0];
+}

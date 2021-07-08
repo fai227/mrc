@@ -1,34 +1,36 @@
 import Head from "next/head";
 
 import { getLatestTopics } from "../lib/api";
+import { SITE_TITLE } from "../lib/constants";
 
 import Layout from "../components/layout";
-import Header from "../components/header";
-import Meta from "../components/meta";
-import Container from "../components/container";
-import List from "../components/index/list";
+import List from "../components/list";
 
 function Home({ items }) {
   return (
     <Layout>
-      <Header />
-      <Container>
-        <article>
-          <Meta />
-          <Head>
-            <title>同志社大学 モビリティ研究センター</title>
-          </Head>
-          <img src="/banner.png" />
-          <List items={items} />
-        </article>
-      </Container>
+      <Head>
+        <title>{SITE_TITLE}</title>
+      </Head>
+
+      <img src="/banner.png" />
+
+      <div className="mx-2 my-4 border border-gray-300 rounded">
+        <div className="p-3 border-b-4 border-gray-600 grid grid-cols-3">
+          <p className="font-bold col-span-2">What's new</p>
+          <a href="/topics" className="text-right text-xs hover:underline">
+            過去の情報はこちらから
+          </a>
+        </div>
+      </div>
+
+      <List items={items} />
     </Layout>
   );
 }
 
 export async function getStaticProps() {
   const items = await getLatestTopics();
-  console.log(items);
   return { props: { items: items } };
 }
 
