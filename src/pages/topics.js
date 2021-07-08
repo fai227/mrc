@@ -14,7 +14,7 @@ function Topics({ title, items }) {
           {title} | {SITE_TITLE}
         </title>
       </Head>
-      <h1 className="px-8 py-4 mx-1 my-6 text-xl bg-gray-700 text-white rounded">{title}</h1>
+      <h1 className="px-8 py-4 mx-1 my-6 text-xl font-bold bg-gray-700 text-white rounded">{title}</h1>
       <List items={items} />
     </Layout>
   );
