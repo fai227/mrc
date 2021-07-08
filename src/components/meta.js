@@ -29,9 +29,6 @@ function Meta() {
         content="同志社大学 モビリティ研究センターでは、情報システム、制御システム、社会システムが密接に協調・統合し、さらに生体情報を考慮することで、将来に向けたモビリティ変革を実現するための新技術の研究開発および社会への普及検討を行っております。"
       />
       <meta name="twitter:card" content="summary_large_image" />
-
-      {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-1KFBDYWW50"></script> */}
-      {/* <script src="/lib/gtag.js"></script> */}
     </Head>
   );
 }
