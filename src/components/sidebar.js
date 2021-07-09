@@ -10,7 +10,7 @@ function Sidebar({ items, title }) {
         <ul className="px-2">
           {items.map((item) => (
             <li key={item.sys.id}>
-              <Link href="/publications/[item.fields.year]">
+              <Link as={`/publications/${item.fields.year}`} href="/publications/[item.fields.year]">
                 <a className="text-blue-600 hover:underline">
                   {item.fields.title}
                 </a>
