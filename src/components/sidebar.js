@@ -11,16 +11,14 @@ function Sidebar({ items, title }) {
           {items.map((item) => (
             <li key={item.sys.id}>
               <Link as={`/publications/${item.fields.year}`} href="/publications/[item.fields.year]">
-                <a className="text-blue-600 hover:underline">
-                  {item.fields.title}
-                </a>
+                <a className="text-blue-600 hover:underline">{item.fields.title}</a>
               </Link>
             </li>
           ))}
         </ul>
       </div>
     </>
-  )
+  );
 }
 
 export default Sidebar;
