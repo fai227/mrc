@@ -16,13 +16,13 @@ function Meta() {
         name="description"
         content="同志社大学 モビリティ研究センターでは、情報システム、制御システム、社会システムが密接に協調・統合し、さらに生体情報を考慮することで、将来に向けたモビリティ変革を実現するための新技術の研究開発および社会への普及検討を行っております。"
       />
-      {/* <meta property="og:image" content="https://kogepan.me/ogp/ogp.png" /> */}
+      {/* <meta property="og:image" content="https://mrc.doshisha.ac.jp/ogp/ogp.png" /> */}
 
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="author" content="Doshisha University" />
       <meta property="og:url" content="https://mrc.doshisha.ac.jp/" />
       <meta property="og:locale" content="ja_JP" />
-      {/* <meta property="og:image" content="https://kogepan.me/ogp/ogp.png" /> */}
+      {/* <meta property="og:image" content="https://mrc.doshisha.ac.jp/ogp/ogp.png" /> */}
       <meta property="og:title" content="同志社大学 モビリティ研究センター" />
       <meta
         property="og:description"

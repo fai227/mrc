@@ -1,6 +1,6 @@
 {
-  "name": "kogepan.me",
-  "short_name": "kogepan.me",
+  "name": "mrc.doshisha.ac.jp",
+  "short_name": "mrc.doshisha.ac.jp",
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#2563EB",
+  "theme_color": "#550071",
   "background_color": "#000000",
   "display": "standalone"
 }

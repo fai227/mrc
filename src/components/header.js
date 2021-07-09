@@ -45,7 +45,7 @@ function Header() {
               <img src="/header/menu03.png" />
             </a>
           </Link>
-          <Link href="/publications">
+          <Link href="/publications/2018">
             <a className="hover:opacity-50">
               <img src="/header/menu04.png" />
             </a>
