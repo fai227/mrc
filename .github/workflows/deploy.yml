@@ -1,0 +1,42 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  # repository_dispatch:
+
+jobs:
+  Build-and-Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - run: yarn install
+
+      - run: yarn build
+        env:
+          NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN }}
+          NEXT_PUBLIC_CF_SPACE_ID: ${{ secrets.NEXT_PUBLIC_CF_SPACE_ID }}
+
+      - run: tar -zcvf out.tar.gz out
+
+      - run: echo "${{ secrets.SERVER_KEY }}" > aws_lightsail_key
+
+      - run: chmod 600 ./aws_lightsail_key
+
+      - run: scp -o StrictHostKeyChecking=no -i ./aws_lightsail_key ./out.tar.gz ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:/var/www/html
+
+      - run: ssh -o StrictHostKeyChecking=no -i ./aws_lightsail_key ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /var/www/html && rm -r out && tar -zxvf out.tar.gz && rm out.tar.gz"
+
+      # - uses: rtCamp/action-slack-notify@v2
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #     SLACK_ICON: https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2021-07-06/2257469713729_06357f0ef4a522dfb049_72.png
+      #     SLACK_USERNAME: NISLAB
+      #     SLACK_MESSAGE: "NISLAB HP が更新されました！"
