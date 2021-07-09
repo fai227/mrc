@@ -14,7 +14,7 @@ function Home({ items }) {
         <title>{SITE_TITLE}</title>
       </Head>
 
-      <img src="/banner.png" />
+      <img src="/banner.png" alt="banner" width="900px" height="303px" />
 
       <div className="mx-2 my-4 border border-gray-300 rounded">
         <div className="p-3 border-b-4 border-gray-600 grid grid-cols-3">

@@ -6,7 +6,7 @@ function Footer() {
     <footer className="mt-8 pt-8 pb-32 bg-headerbg text-white text-xs">
       <Container>
         <div className="grid grid-cols-3">
-          <div className="col-span-2">
+          <div className="col-span-2 mx-2">
             <p className="leading-5">
               お問い合わせ先
               <br />
@@ -15,7 +15,7 @@ function Footer() {
               TEL：0774-65-6297 / E-mail：rc-mblty[at]mail.doshisha.ac.jp
             </p>
           </div>
-          <div className="text-right">
+          <div className="text-right mx-2">
             <ScrollUp />
             <small>&copy; Doshisha University All Rights Reserved.</small>
           </div>

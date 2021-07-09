@@ -27,32 +27,32 @@ function Header() {
         <div className="flex flex-row">
           <Link href="/">
             <a>
-              <img src="/header/logo.png" className="py-3 mx-2" />
+              <img src="/header/logo.png" className="py-3 mx-2" alt="logo" width="337px" height="26px" />
             </a>
           </Link>
           <Link href="/about">
             <a className="hover:opacity-50">
-              <img src="/header/menu01.png" />
+              <img src="/header/menu01.png" alt="about" width="110px" height="52px" />
             </a>
           </Link>
           <Link href="/research">
             <a className="hover:opacity-50">
-              <img src="/header/menu02.png" />
+              <img src="/header/menu02.png" alt="research" width="110px" height="52px" />
             </a>
           </Link>
           <Link href="/topics">
             <a className="hover:opacity-50">
-              <img src="/header/menu03.png" />
+              <img src="/header/menu03.png" alt="topics" width="110px" height="52px" />
             </a>
           </Link>
           <Link href="/publications/2018">
             <a className="hover:opacity-50">
-              <img src="/header/menu04.png" />
+              <img src="/header/menu04.png" alt="publications" width="110px" height="52px" />
             </a>
           </Link>
           <Link href="/misc">
             <a className="hover:opacity-50">
-              <img src="/header/menu05.png" />
+              <img src="/header/menu05.png" alt="misc" width="110px" height="52px" />
             </a>
           </Link>
         </div>
