@@ -5,6 +5,7 @@ import { getAllPublications } from "../../lib/api";
 import { SITE_TITLE } from "../../lib/constants";
 
 import Layout from "../../components/layout";
+import PageTitle from "../../components/pageTitle";
 import markdownStyles from "../../styles/markdown-styles.module.css";
 
 function Index({ title, items }) {
@@ -15,7 +16,7 @@ function Index({ title, items }) {
           {title} | {SITE_TITLE}
         </title>
       </Head>
-      <h1 className="px-8 py-4 mx-1 my-6 text-xl font-bold bg-gray-700 text-white rounded">{title}</h1>
+      <PageTitle title={title} />
       <div className={markdownStyles["markdown"]}>
         <ul>
           {items.map((item) => (

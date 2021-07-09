@@ -6,6 +6,7 @@ import markdownToHtml from "../lib/markdownToHtml";
 
 import Layout from "../components/layout";
 import Content from "../components/content";
+import PageTitle from "../components/pageTitle";
 
 function About({ title, body }) {
   return (
@@ -15,7 +16,8 @@ function About({ title, body }) {
           {title} | {SITE_TITLE}
         </title>
       </Head>
-      <Content title={title} body={body} />
+      <PageTitle title={title} />
+      <Content body={body} />
     </Layout>
   );
 }

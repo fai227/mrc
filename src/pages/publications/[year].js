@@ -6,8 +6,10 @@ import markdownToHtml from "../../lib/markdownToHtml";
 
 import Layout from "../../components/layout";
 import Content from "../../components/content";
+import PageTitle from "../../components/pageTitle";
+import Sidebar from "../../components/sidebar";
 
-function Publication({ title, body }) {
+function Publication({ items, title, body }) {
   return (
     <Layout>
       <Head>
@@ -15,7 +17,15 @@ function Publication({ title, body }) {
           {title} | {SITE_TITLE}
         </title>
       </Head>
-      <Content title={title} body={body} />
+      <PageTitle title={title} />
+      <div className="grid grid-cols-5">
+        <div className="col-span-4">
+          <Content body={body} />
+        </div>
+        <div className="border-l">
+          <Sidebar items={items} title="研究発表" />
+        </div>
+      </div>
     </Layout>
   );
 }
@@ -30,9 +40,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  const items = await getAllPublications();
   const item = await getPublication(params.year);
   const body = await markdownToHtml(item.fields.body);
-  return { props: { title: item.fields.title, body: body } };
+  return { props: { items: items, title: item.fields.title, body: body } };
 }
 
 export default Publication;

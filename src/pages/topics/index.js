@@ -5,6 +5,7 @@ import { SITE_TITLE } from "../../lib/constants";
 
 import Layout from "../../components/layout";
 import List from "../../components/list";
+import PageTitle from "../../components/pageTitle";
 
 function Index({ title, items }) {
   return (
@@ -14,7 +15,7 @@ function Index({ title, items }) {
           {title} | {SITE_TITLE}
         </title>
       </Head>
-      <h1 className="px-8 py-4 mx-1 my-6 text-xl font-bold bg-gray-700 text-white rounded">{title}</h1>
+      <PageTitle title={title} />
       <List items={items} />
     </Layout>
   );
