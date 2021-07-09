@@ -4,7 +4,7 @@ import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } f
 export default function ScrollUp() {
   return (
     <div className="my-3">
-      <a onClick={scroll.scrollToTop} className="p-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-60 cursor-pointer">
+      <a onClick={scroll.scrollToTop} className="p-2 rounded-full bg-gray-400 hover:bg-opacity-40 cursor-pointer">
         ↑ Top page{" "}
       </a>
     </div>
