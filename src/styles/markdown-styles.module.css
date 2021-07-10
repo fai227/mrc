@@ -35,7 +35,7 @@
 }
 
 .markdown table {
-  @apply max-w-full table-auto border-collapse;
+  @apply max-w-full table-auto border-collapse mb-6;
 }
 
 .markdown tr {
