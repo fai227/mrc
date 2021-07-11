@@ -4,6 +4,7 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  trailingSlash: true,
   // images: {
   //   disableStaticImages: true,
   // },
