@@ -47,38 +47,7 @@ Apache を再起動します。
 sudo systemctl restart httpd
 ```
 
-### 3. `html` の拡張子がなくてもページが表示されるように設定
-
-Next.js の動的ルーティング機能を利用して Contentful の記事を動的にビルドしています。
-
-Next.js では、それらの出力されるファイルが `[url].html` というファイルで出力されるため、 `index.html` と異なり、 404 Error が表示されがちになります。
-
-そこで `.htaccess` ファイルを置くことで、拡張子がなくてもページが表示されるようにしています。
-
-```sh
-# /var/www/.htaccess
-
-+ RewriteEngine On
-+ RewriteCond %{REQUEST_FILENAME} !-d
-+ RewriteRule ^([^.]+)$ $1.html [NC,L]
-```
-
-```sh
-# /etc/httpd/conf/httpd.conf
-
-# 下記の AllowOverride を None から FileInfo に変更します
-  <Directory "/var/www">
--   AllowOverride None
-+   AllowOverride FileInfo
-    Require all granted
-  </Directory>
-```
-
-```sh
-sudo systemctl restart httpd
-```
-
-### 4. TLS (HTTPS) 化
+### 3. TLS (HTTPS) 化
 
 > <https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html>
 
