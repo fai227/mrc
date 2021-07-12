@@ -1,21 +1,40 @@
+/* Margin / Padding */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+.markdown p,
+.markdown img,
+.markdown ul,
+.markdown table {
+  @apply mt-2 mb-6 leading-relaxed;
+}
+
+.markdown li {
+  @apply mt-2 mb-2;
+}
+
+/* Styles */
 .markdown h1 {
   @apply text-2xl font-bold;
 }
 
 .markdown h2 {
-  @apply text-lg font-bold px-1 py-2 mt-2 mb-6 border-b-2 border-gray-600 rounded;
+  @apply text-lg font-bold px-1 py-2 border-b-2 border-gray-600 rounded;
 }
 
 .markdown h3 {
-  @apply text-base font-medium px-2 py-1 mt-2 mb-4 border-l-2 border-gray-300;
+  @apply text-base font-medium px-2 py-1 border-l-2 border-gray-300;
 }
 
 .markdown h4 {
-  @apply text-base font-medium px-2 py-1 mt-2 mb-4;
+  @apply text-base font-medium px-2 py-1;
 }
 
 .markdown p {
-  @apply mx-2 mt-2 mb-6;
+  @apply mx-2;
 }
 
 .markdown a {
@@ -27,19 +46,15 @@
 }
 
 .markdown ul {
-  @apply list-disc list-outside ml-6 mx-2;
-}
-
-.markdown li {
-  @apply my-2;
+  @apply list-disc list-outside ml-6;
 }
 
 .markdown table {
-  @apply max-w-full table-auto border-collapse mb-6;
+  @apply max-w-full table-auto border-collapse;
 }
 
 .markdown tr {
-  @apply border-b border-gray-400;
+  @apply border-b border-gray-200;
 }
 
 .markdown td {
