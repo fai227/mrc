@@ -10,6 +10,7 @@ export async function getLatestTopics() {
   const res = await client.getEntries({
     content_type: "topics",
     order: "-fields.date",
+    limit: 20,
   });
   return res.items;
 }
