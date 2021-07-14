@@ -12,7 +12,7 @@ function Footer() {
               <br />
               〒610-0321 京都府京田辺市多々羅都谷1-3 同志社大学モビリティ研究センター
               <br />
-              TEL：0774-65-6297 / E-mail：rc-mblty[at]mail.doshisha.ac.jp
+              TEL：0774-65-6297 / E-mail：rc-mblty@mail.doshisha.ac.jp
             </p>
           </div>
           <div className="text-right mx-2">
