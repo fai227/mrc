@@ -49,6 +49,10 @@
   @apply list-disc list-outside ml-6;
 }
 
+.markdown ol {
+  @apply list-decimal list-outside ml-6;
+}
+
 .markdown table {
   @apply max-w-full table-auto border-collapse;
 }
