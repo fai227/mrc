@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { getAllPublications } from "../../lib/api";
 import { SITE_TITLE } from "../../lib/constants";
-
 import Layout from "../../components/layout";
 import PageTitle from "../../components/pageTitle";
 import markdownStyles from "../../styles/markdown-styles.module.css";

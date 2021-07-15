@@ -2,7 +2,6 @@ import Head from "next/head";
 
 import { getAllTopics } from "../../lib/api";
 import { SITE_TITLE } from "../../lib/constants";
-
 import Layout from "../../components/layout";
 import List from "../../components/list";
 import PageTitle from "../../components/pageTitle";
