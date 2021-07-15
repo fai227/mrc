@@ -3,7 +3,6 @@ import Head from "next/head";
 import { getAllPublications, getPublication } from "../../lib/api";
 import { SITE_TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
-
 import Layout from "../../components/layout";
 import Content from "../../components/content";
 import PageTitle from "../../components/pageTitle";

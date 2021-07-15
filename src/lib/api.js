@@ -6,14 +6,14 @@ const client = createClient({
   accessToken: NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN,
 });
 
-export async function getLatestTopics() {
-  const res = await client.getEntries({
-    content_type: "topics",
-    order: "-fields.date",
-    limit: 20,
-  });
-  return res.items;
-}
+// export async function getLatestTopics() {
+//   const res = await client.getEntries({
+//     content_type: "topics",
+//     order: "-fields.date",
+//     limit: 20,
+//   });
+//   return res.items;
+// }
 
 export async function getAllTopics() {
   const res = await client.getEntries({
