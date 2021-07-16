@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import { getPage } from "../lib/api";
-import { SITE_TITLE } from "../lib/constants";
-import markdownToHtml from "../lib/markdownToHtml";
-import Layout from "../components/layout";
-import Content from "../components/content";
-import LanguageMenu from "../components/languageMenu";
+import { getPage } from "../../lib/api";
+import { SITE_TITLE } from "../../lib/constants";
+import markdownToHtml from "../../lib/markdownToHtml";
+import Layout from "../../components/layout";
+import Content from "../../components/content";
+import LanguageMenu from "../../components/languageMenu";
 
 function Home({ body }) {
   return (
@@ -23,7 +23,7 @@ function Home({ body }) {
 }
 
 export async function getStaticProps() {
-  const item = await getPage("research");
+  const item = await getPage("research-en");
   const body = await markdownToHtml(item.fields.body);
   return { props: { body: body } };
 }
