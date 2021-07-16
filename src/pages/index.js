@@ -13,7 +13,7 @@ function Home({ title, body }) {
       <Head>
         <title>{SITE_TITLE}</title>
       </Head>
-      <img src="/banner.png" alt="banner" width="900px" height="303px" className="mb-12" />
+      <img src="/banner.png" alt="banner" width="900px" height="303px" className="mb-6" />
 
       <Content body={body} />
     </Layout>
