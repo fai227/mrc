@@ -1,10 +1,17 @@
 # Mobility Research Center HP
 
-## What's this?
-
 同志社大学 モビリティ研究センターの HP (<https://mrc.doshisha.ac.jp>) です。
 
 もともとは `PHP/HTML` で動いていた（レイアウト崩れ等が多発していた）ものを、CMS を入れて欲しいという要望（from 佐藤先生）があり、 `Next.js(React.js)` ・ `contentful` にマイグレーションしました。
+
+## 構成（2021 年 7 月時点）
+
+- AWS Lightsail (Static IP を割り当て、大学へ DNS 申請をしています。)
+- Apache
+- Let's Encrypt
+- Next.js (React.js)
+- tailwindcss
+- contentful
 
 ---
 
