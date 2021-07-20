@@ -1,40 +1,45 @@
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 
-import { getAllPublications } from "../../lib/api";
-import { SITE_TITLE } from "../../lib/constants";
+import { getLatestPublication, getAllPublications } from "../../lib/api";
+import { J_SITE_TITLE, E_SITE_TITLE } from "../../lib/constants";
+import markdownToHtml from "../../lib/markdownToHtml";
 import Layout from "../../components/layout";
+import Content from "../../components/content";
 import PageTitle from "../../components/pageTitle";
-import markdownStyles from "../../styles/markdown-styles.module.css";
+import Sidebar from "../../components/sidebar";
 
-function Index({ title, items }) {
+function Index({ body, title, etitle, items }) {
+  const { locale } = useRouter();
+  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja" ? title : etitle;
+  const sidebar_title = locale === "ja" ? "研究発表" : "Publications";
+
   return (
     <Layout>
       <Head>
         <title>
-          {title} | {SITE_TITLE}
+          {page_title} | {site_title}
         </title>
       </Head>
-      <PageTitle title={title} />
-      <div className={markdownStyles["markdown"]}>
-        <ul>
-          {items.map((item) => (
-            <li key={item.sys.id}>
-              <Link as={`/publications/${item.fields.year}`} href="/publications/[item.fields.year]">
-                <a className="text-blue-600 hover:underline">{item.fields.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <PageTitle title={page_title} />
+      <div className="grid grid-cols-5">
+        <div className="col-span-4">
+          <Content body={body} />
+        </div>
+        <div className="border-l">
+          <Sidebar items={items} title={sidebar_title} />
+        </div>
       </div>
     </Layout>
   );
 }
 
 export async function getStaticProps() {
+  const latestItem = await getLatestPublication();
+  const body = await markdownToHtml(latestItem.fields.body);
   const items = await getAllPublications();
-  const title = "研究発表";
-  return { props: { title: title, items: items } };
+  return { props: { body: body, title: latestItem.fields.title, etitle: latestItem.fields.etitle, items: items } };
 }
 
 export default Index;

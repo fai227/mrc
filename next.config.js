@@ -8,4 +8,8 @@ module.exports = {
   // images: {
   //   disableStaticImages: true,
   // },
+  i18n: {
+    locales: ["ja", "en"],
+    defaultLocale: "ja",
+  },
 };

@@ -1,15 +1,23 @@
 import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 
 function List({ items }) {
+  const { locale } = useRouter();
+  items.map((item) => {
+    item.fields.title = locale === "ja" ? item.fields.title : item.fields.etitle;
+  });
+
   return (
     <>
       {items.map((item) => (
-        <p key={item.sys.id} className="my-4">
-          <span className="px-2 py-1 mx-3 bg-gray-200">{item.fields.date}</span>
-          <Link as={`/topics/${item.sys.id}`} href="/topics/[item.sys.id]">
-            <a className="text-blue-600 hover:underline">{item.fields.title}</a>
-          </Link>
-        </p>
+        <div key={item.sys.id} className="grid grid-cols-7 my-4 mx-3 items-center">
+          <p className="py-1 mx-1 bg-gray-200 text-center">{item.fields.date}</p>
+          <p className="col-span-6 py-1 mx-2">
+            <Link as={`/topics/${item.sys.id}`} href="/topics/[item.sys.id]">
+              <a className="text-blue-600 hover:underline">{item.fields.title}</a>
+            </Link>
+          </p>
+        </div>
       ))}
     </>
   );

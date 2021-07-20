@@ -1,21 +1,23 @@
 import Head from "next/head";
-import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 
 import { getPage } from "../lib/api";
-import { SITE_TITLE } from "../lib/constants";
+import { J_SITE_TITLE, E_SITE_TITLE } from "../lib/constants";
 import markdownToHtml from "../lib/markdownToHtml";
 import Layout from "../components/layout";
 import Content from "../components/content";
-import LanguageMenu from "../components/languageMenu";
 
-function Home({ body }) {
+export default function Home({ jbody, ebody }) {
+  const { locale } = useRouter();
+  const body = locale === "ja" ? jbody : ebody;
+  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
+
   return (
     <Layout>
       <Head>
-        <title>{SITE_TITLE}</title>
+        <title>{site_title}</title>
       </Head>
       <img src="/banner.png" alt="banner" width="900px" height="303px" className="mb-6" />
-      <LanguageMenu ja="/" en="/en" />
 
       <Content body={body} />
     </Layout>
@@ -23,9 +25,9 @@ function Home({ body }) {
 }
 
 export async function getStaticProps() {
-  const item = await getPage("research");
-  const body = await markdownToHtml(item.fields.body);
-  return { props: { body: body } };
+  const jitem = await getPage("research");
+  const eitem = await getPage("research-en");
+  const jbody = await markdownToHtml(jitem.fields.body);
+  const ebody = await markdownToHtml(eitem.fields.body);
+  return { props: { jbody: jbody, ebody: ebody } };
 }
-
-export default Home;
