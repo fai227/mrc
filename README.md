@@ -117,6 +117,8 @@ npm install -g forever
 
 cd /var/www/html/mrc
 
+yarn build
+
 # 起動
 forever start -c "yarn start" ./
 
