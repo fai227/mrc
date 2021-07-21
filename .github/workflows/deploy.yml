@@ -17,7 +17,7 @@ jobs:
 
       - run: chmod 600 ./aws_lightsail_key
 
-      - run: ssh -o StrictHostKeyChecking=no -i ./aws_lightsail_key ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /var/www/html/mrc && git pull origin main && yarn install && yarn build"
+      - run: ssh -o StrictHostKeyChecking=no -i ./aws_lightsail_key ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /var/www/html/mrc && git pull origin main && yarn install && forever restart -c 'yarn start' ./"
 
       # - uses: rtCamp/action-slack-notify@v2
       #   env:
