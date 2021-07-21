@@ -6,15 +6,6 @@ const client = createClient({
   accessToken: NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN,
 });
 
-// export async function getLatestTopics() {
-//   const res = await client.getEntries({
-//     content_type: "topics",
-//     order: "-fields.date",
-//     limit: 20,
-//   });
-//   return res.items;
-// }
-
 export async function getAllTopics() {
   const res = await client.getEntries({
     content_type: "topics",
@@ -45,6 +36,22 @@ export async function getPublication(year) {
     "fields.year": year,
   });
   return res.items[0];
+}
+
+export async function getLatestPublication() {
+  const res = await client.getEntries({
+    content_type: "publications",
+    order: "-fields.year",
+  });
+  return res.items[0];
+}
+
+export async function getLatestPublicationYear() {
+  const res = await client.getEntries({
+    content_type: "publications",
+    order: "-fields.year",
+  });
+  return res.items[0].fields.year;
 }
 
 export async function getPage(slug) {

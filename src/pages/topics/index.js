@@ -1,20 +1,25 @@
 import Head from "next/head";
+import { useRouter } from "next/dist/client/router";
 
 import { getAllTopics } from "../../lib/api";
-import { SITE_TITLE } from "../../lib/constants";
+import { J_SITE_TITLE, E_SITE_TITLE } from "../../lib/constants";
 import Layout from "../../components/layout";
 import List from "../../components/list";
 import PageTitle from "../../components/pageTitle";
 
-function Index({ title, items }) {
+function Index({ items }) {
+  const { locale } = useRouter();
+  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja" ? "活動内容" : "Activities";
+
   return (
     <Layout>
       <Head>
         <title>
-          {title} | {SITE_TITLE}
+          {page_title} | {site_title}
         </title>
       </Head>
-      <PageTitle title={title} />
+      <PageTitle title={page_title} />
       <List items={items} />
     </Layout>
   );
@@ -22,8 +27,7 @@ function Index({ title, items }) {
 
 export async function getStaticProps() {
   const items = await getAllTopics();
-  const title = "活動内容";
-  return { props: { title: title, items: items } };
+  return { props: { items: items } };
 }
 
 export default Index;

@@ -1,30 +1,36 @@
 import Head from "next/head";
+import { useRouter } from "next/dist/client/router";
 
 import { getPage } from "../lib/api";
-import { SITE_TITLE } from "../lib/constants";
+import { J_SITE_TITLE, E_SITE_TITLE } from "../lib/constants";
 import markdownToHtml from "../lib/markdownToHtml";
 import Layout from "../components/layout";
 import Content from "../components/content";
 import PageTitle from "../components/pageTitle";
 
-function Privacy({ title, body }) {
+export default function Privacy({ jtitle, etitle, jbody, ebody }) {
+  const { locale } = useRouter();
+  const body = locale === "ja" ? jbody : ebody;
+  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja" ? jtitle : etitle;
+
   return (
     <Layout>
       <Head>
         <title>
-          {title} | {SITE_TITLE}
+          {page_title} | {site_title}
         </title>
       </Head>
-      <PageTitle title={title} />
+      <PageTitle title={page_title} />
       <Content body={body} />
     </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const item = await getPage("privacy");
-  const body = await markdownToHtml(item.fields.body);
-  return { props: { title: item.fields.title, body: body } };
+  const jitem = await getPage("privacy");
+  const eitem = await getPage("privacy-en");
+  const jbody = await markdownToHtml(jitem.fields.body);
+  const ebody = await markdownToHtml(eitem.fields.body);
+  return { props: { jtitle: jitem.fields.title, etitle: eitem.fields.title, jbody: jbody, ebody: ebody } };
 }
-
-export default Privacy;
