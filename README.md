@@ -7,6 +7,7 @@
 ## 構成（2021 年 7 月時点）
 
 - AWS Lightsail (Static IP を割り当て、大学へ DNS 申請をしています。)
+- Node.js
 - Apache
 - Let's Encrypt
 - Next.js (React.js)
@@ -17,9 +18,11 @@
 
 ## インフラ・サーバ周り（特に更新の必要はないため、ほぼ作業ログ）
 
+Amazon Linux 2 を利用しています。ディストリビューションに応じてコマンドを読み替えてください。
+
 AWS Lightsail（EC2）上で Apache が動いています。
 
-Next.js で SSG しているため、サーバレスで公開したいところですが、大学側のドメイン（DNS）が A レコードしか登録申請することができないため、泣く泣くウェブサーバを立てて公開しています。
+ロケール対応させるため、 Next.js を SSR して Node.js サーバ上でホスティングしています。サーバレスで公開したいところですが、大学側のドメイン（DNS）が A レコードしか登録申請することができないため、泣く泣くウェブサーバを立てて公開しています。
 
 HTTPS 化については、Let's Encrypt を利用しており、Cron で証明書発行を自動化しています。
 
@@ -27,25 +30,73 @@ HTTPS 化については、Let's Encrypt を利用しており、Cron で証明�
 
 > <https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html>
 
-Amazon Linux 2 を利用しています。ディストリビューションに応じてコマンドを読み替えてください。
-
 ```sh
 sudo yum update -y
+
 sudo yum install -y httpd
 
 sudo systemctl start httpd    # Apache の起動
+
 sudo systemctl enable httpd   # インスタンスを再起動しても Apache が起動するように
 ```
 
-### 2. ルートディレクトリの変更
+### 2. git のインストール
 
-Next.js では、ビルドしたファイル群は `out` フォルダに出力されます。 GitHub Actions を用いて out ディレクトリをデプロイしているため、ルートディレクトリを out ディレクトリ配下に変更します。
+```sh
+sudo yum install -y git
+```
+
+### 3. Node.js / Yarn のインストール
+
+> <https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html>
+
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+. ~/.nvm/nvm.sh
+
+nvm install node
+
+npm install -g yarn
+```
+
+### 4. リポジトリのクローン
+
+```sh
+sudo chmod -R 777 /var/www/html/
+
+cd /var/www/html/
+
+git clone https://github.com/Kenny-NISLab/mrc
+```
+
+```sh
+# /var/www/html/mrc/.env.local
+
+NEXT_PUBLIC_CF_SPACE_ID=""
+NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN=""
+```
+
+### 5. ルートディレクトリの変更
+
+Next.js を SSR する際に、 Apache のリバースプロキシでサーバ上の localhost にアクセスされるように設定します。
+
+> <https://suwaru.tokyo/%E3%80%90%E6%9C%AC%E7%95%AA%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%80%91node-js%E3%82%B5%E3%83%BC%E3%83%90%E6%8E%A5%E7%B6%9A%E6%96%B9%E6%B3%95%E3%80%90%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9%E3%83%97/>
 
 ```sh
 # /etc/httpd/conf/httpd.conf
 
 - DocumentRoot "/var/www/html"
-+ DocumentRoot "/var/www/html/out"
++ DocumentRoot "/var/www/html/mrc"
+
+- <Directory "/var/www/html">
++ <Directory "/var/www/html/mrc">
+
++ ProxyRequests Off
++ <Location />
++   ProxyPass http://localhost:3000/
++   ProxyPassReverse http://localhost:3000/
++ </Location>
 ```
 
 Apache を再起動します。
@@ -54,7 +105,29 @@ Apache を再起動します。
 sudo systemctl restart httpd
 ```
 
-### 3. TLS (HTTPS) 化
+### 6. Node.js サーバ起動
+
+通常の `yarn start` コマンドで Node.js サーバを起動した場合、ログアウトと同時にバックグラウンド処理も終了されてしまうため、 `forever` コマンドで実行する必要があります。
+
+> <https://www.npmjs.com/package/forever>
+
+```sh
+# パッケージのインストール
+npm install -g forever
+
+cd /var/www/html/mrc
+
+# 起動
+forever start -c "yarn start" ./
+
+# 再起動
+forever restart -c "yarn start" ./
+
+# プロセスの確認
+forever list
+```
+
+### 7. TLS (HTTPS) 化
 
 > <https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html>
 
@@ -167,10 +240,6 @@ Lightsail インスタンスが初期状態の場合、 `/var/www/html/` に SCP
 NEXT_PUBLIC_CF_SPACE_ID=""
 NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN=""
 ```
-
-### 注意事項（引き継ぎ事項）
-
-ヘッダーの研究発表のリンクは、「最新年度の研究発表ページに飛ぶ」のではなく、「2018 年度のページに飛ぶ」ように直打ちしています（HP の更新予定がないこともありめんどくさかった）。もし 2018 年度以外のページにリンクさせたい場合は、 `src/components/header.js` を編集してください。
 
 ---
 
