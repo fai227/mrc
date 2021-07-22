@@ -10,6 +10,6 @@ module.exports = {
   // },
   i18n: {
     locales: ["ja-JP", "en"],
-    defaultLocale: "en",
+    defaultLocale: "ja-JP",
   },
 };
