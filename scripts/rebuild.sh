@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd /var/www/html/mrc/
-
 git pull origin main
 
 yarn install
