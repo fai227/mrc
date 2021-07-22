@@ -123,7 +123,7 @@ yarn build
 forever start -c "yarn start" ./
 
 # 再起動
-forever restart -c "yarn start" ./
+forever restartall
 
 # プロセスの確認
 forever list
@@ -133,7 +133,7 @@ forever list
 
 > <https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html>
 
-調査の結果、 AWS の ACM を利用するのは難しいため、 Let's Encrypt を利用して HTTPS 化を行った。
+調査の結果、 AWS の ACM を利用するのは難しいため、 Let's Encrypt を利用して HTTPS 化を行いました。
 
 基本は AWS のドキュメント通りにやればできます。
 
