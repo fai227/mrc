@@ -205,20 +205,14 @@ GitHub Actions を用いて Lightsail インスタンスにビルドしたファ
 
 簡単に説明すると、
 
-1. `yarn install --production`
-2. `yarn build` で SSG
-3. 出力された `out` ディレクトリを圧縮して Lightsail インスタンスに SCP で転送
-4. Lightsail 上にある `out` ディレクトリを置き換える
+1. Lightsail（EC2）内の `/var/www/html/mrc/` に移動
+2. Shell Script を実行（リビルド）
 
 というものです。
 
 トリガーは、 `GitHub の main ブランチに push された時` と、 `Contenful で記事が公開・更新・削除` された時です。
 
 HP の更新が完了すると、 Slack に通知が届くようになっています。
-
-### 注意事項
-
-Lightsail インスタンスが初期状態の場合、 `/var/www/html/` に SCP の権限がない場合がありますので、必要に応じて `chmod` コマンド等で SCP 転送できるようにしてあげてください。
 
 ---
 
