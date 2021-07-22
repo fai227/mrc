@@ -27,7 +27,7 @@ const ja = {
 };
 
 export default function Header() {
-  const t = useRouter().locale === "ja" ? ja : en;
+  const t = useRouter().locale === "ja-JP" ? ja : en;
 
   return (
     <header>

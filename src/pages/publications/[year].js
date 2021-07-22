@@ -11,9 +11,9 @@ import Sidebar from "../../components/sidebar";
 
 export default function Publication({ items, title, etitle, body }) {
   const { locale } = useRouter();
-  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
-  const page_title = locale === "ja" ? title : etitle;
-  const sidebar_title = locale === "ja" ? "研究発表" : "Publications";
+  const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja-JP" ? title : etitle;
+  const sidebar_title = locale === "ja-JP" ? "研究発表" : "Publications";
 
   return (
     <Layout>
@@ -41,7 +41,7 @@ export async function getStaticPaths({ locales }) {
   items.map((item) => {
     paths.push({
       params: { year: item.fields.year.toString() },
-      locale: "ja",
+      locale: "ja-JP",
     });
     paths.push({
       params: { year: item.fields.year.toString() },

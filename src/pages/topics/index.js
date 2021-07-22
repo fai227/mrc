@@ -9,8 +9,8 @@ import PageTitle from "../../components/pageTitle";
 
 function Index({ items }) {
   const { locale } = useRouter();
-  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
-  const page_title = locale === "ja" ? "活動内容" : "Activities";
+  const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja-JP" ? "活動内容" : "Activities";
 
   return (
     <Layout>

@@ -33,7 +33,7 @@ const ja = {
 };
 
 function Footer() {
-  const t = useRouter().locale === "ja" ? ja : en;
+  const t = useRouter().locale === "ja-JP" ? ja : en;
 
   return (
     <footer className="mt-8 pt-8 pb-32 bg-headerbg text-white text-xs">

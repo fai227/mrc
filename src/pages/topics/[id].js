@@ -10,8 +10,8 @@ import PageTitle from "../../components/pageTitle";
 
 export default function Publication({ title, etitle, body }) {
   const { locale } = useRouter();
-  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
-  const page_title = locale === "ja" ? title : etitle;
+  const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja-JP" ? title : etitle;
 
   return (
     <Layout>
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
   items.map((item) => {
     paths.push({
       params: { id: item.sys.id },
-      locale: "ja",
+      locale: "ja-JP",
     });
     paths.push({
       params: { id: item.sys.id },

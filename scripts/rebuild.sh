@@ -1,5 +1,9 @@
 #!/bin/bash
 
+git pull origin main
+
+yarn install
+
 yarn build
 
 ps aux | grep node | grep -v grep | awk '{ print "kill -9", $2 }' | sh

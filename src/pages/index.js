@@ -9,8 +9,8 @@ import Content from "../components/content";
 
 export default function Home({ jbody, ebody }) {
   const { locale } = useRouter();
-  const body = locale === "ja" ? jbody : ebody;
-  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
+  const body = locale === "ja-JP" ? jbody : ebody;
+  const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
 
   return (
     <Layout>

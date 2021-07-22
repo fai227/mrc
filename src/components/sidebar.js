@@ -6,7 +6,7 @@ import markdownStyles from "../styles/markdown-styles.module.css";
 export default function Sidebar({ items, title }) {
   const { locale } = useRouter();
   items.map((item) => {
-    item.fields.title = locale === "ja" ? item.fields.title : item.fields.etitle;
+    item.fields.title = locale === "ja-JP" ? item.fields.title : item.fields.etitle;
   });
 
   return (

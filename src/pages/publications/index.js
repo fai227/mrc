@@ -11,9 +11,9 @@ import Sidebar from "../../components/sidebar";
 
 function Index({ body, title, etitle, items }) {
   const { locale } = useRouter();
-  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
-  const page_title = locale === "ja" ? title : etitle;
-  const sidebar_title = locale === "ja" ? "研究発表" : "Publications";
+  const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja-JP" ? title : etitle;
+  const sidebar_title = locale === "ja-JP" ? "研究発表" : "Publications";
 
   return (
     <Layout>
