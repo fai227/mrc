@@ -4,7 +4,7 @@ import { useRouter } from "next/dist/client/router";
 function List({ items }) {
   const { locale } = useRouter();
   items.map((item) => {
-    item.fields.title = locale === "ja" ? item.fields.title : item.fields.etitle;
+    item.fields.title = locale === "ja-JP" ? item.fields.title : item.fields.etitle;
   });
 
   return (

@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  # repository_dispatch:
+  repository_dispatch:
 
 jobs:
   Build-and-Deploy:
@@ -17,7 +17,7 @@ jobs:
 
       - run: chmod 600 ./aws_lightsail_key
 
-      # - run: ssh -o StrictHostKeyChecking=no -i ./aws_lightsail_key ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /var/www/html/mrc && git pull origin main && yarn install && forever restart -c 'yarn start' ./"
+      - run: ssh -o StrictHostKeyChecking=no -i ./aws_lightsail_key ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /var/www/html/mrc && bash scripts/rebuild.sh"
 
       # - uses: rtCamp/action-slack-notify@v2
       #   env:

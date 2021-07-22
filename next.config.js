@@ -9,7 +9,7 @@ module.exports = {
   //   disableStaticImages: true,
   // },
   i18n: {
-    locales: ["ja", "en"],
+    locales: ["ja-JP", "en"],
     defaultLocale: "en",
   },
 };

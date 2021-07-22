@@ -46,7 +46,7 @@ sudo systemctl enable httpd   # インスタンスを再起動しても Apache �
 sudo yum install -y git
 ```
 
-### 3. Node.js / Yarn のインストール
+### 3. Node.js / Yarn / Forever のインストール
 
 > <https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html>
 
@@ -57,7 +57,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
 nvm install node
 
-npm install -g yarn
+npm install -g yarn forever
 ```
 
 ### 4. リポジトリのクローン
@@ -107,26 +107,14 @@ sudo systemctl restart httpd
 
 ### 6. Node.js サーバ起動
 
-通常の `yarn start` コマンドで Node.js サーバを起動した場合、ログアウトと同時にバックグラウンド処理も終了されてしまうため、 `forever` コマンドで実行する必要があります。
+通常の `yarn start` コマンドで Node.js サーバを起動した場合、ログアウトと同時にバックグラウンド処理も終了されてしまうため、 `forever` コマンドで実行する必要があります。必要なコマンドを実行できるシェルスクリプトを実行します。
 
 > <https://www.npmjs.com/package/forever>
 
 ```sh
-# パッケージのインストール
-npm install -g forever
+cd /var/www/html/mrc/
 
-cd /var/www/html/mrc
-
-yarn build
-
-# 起動
-forever start -c "yarn start" ./
-
-# 再起動
-forever restartall
-
-# プロセスの確認
-forever list
+bash scripts/rebuild.sh
 ```
 
 ### 7. TLS (HTTPS) 化

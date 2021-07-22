@@ -10,9 +10,9 @@ import PageTitle from "../components/pageTitle";
 
 export default function Research({ jtitle, etitle, jbody, ebody }) {
   const { locale } = useRouter();
-  const body = locale === "ja" ? jbody : ebody;
-  const site_title = locale === "ja" ? J_SITE_TITLE : E_SITE_TITLE;
-  const page_title = locale === "ja" ? jtitle : etitle;
+  const body = locale === "ja-JP" ? jbody : ebody;
+  const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
+  const page_title = locale === "ja-JP" ? jtitle : etitle;
 
   return (
     <Layout>
