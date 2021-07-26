@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 
-import { getLatestPublication, getAllPublications } from "../../lib/api";
+import { getLatestPublication, getAllPublications, getEnLatestPublication, getEnAllPublications } from "../../lib/api";
 import { J_SITE_TITLE, E_SITE_TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import Layout from "../../components/layout";
@@ -9,11 +9,13 @@ import Content from "../../components/content";
 import PageTitle from "../../components/pageTitle";
 import Sidebar from "../../components/sidebar";
 
-function Index({ body, title, etitle, items }) {
+export default function Index({ jbody, ebody, jtitle, etitle, jitems, eitems }) {
   const { locale } = useRouter();
   const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
-  const page_title = locale === "ja-JP" ? title : etitle;
+  const page_title = locale === "ja-JP" ? jtitle : etitle;
   const sidebar_title = locale === "ja-JP" ? "研究発表" : "Publications";
+  const body = locale === "ja-JP" ? jbody : ebody;
+  const items = locale === "ja-JP" ? jitems : eitems;
 
   return (
     <Layout>
@@ -36,10 +38,13 @@ function Index({ body, title, etitle, items }) {
 }
 
 export async function getStaticProps() {
-  const latestItem = await getLatestPublication();
-  const body = await markdownToHtml(latestItem.fields.body);
-  const items = await getAllPublications();
-  return { props: { body: body, title: latestItem.fields.title, etitle: latestItem.fields.etitle, items: items } };
+  const latestJItem = await getLatestPublication();
+  const latestEItem = await getEnLatestPublication();
+  const jbody = await markdownToHtml(latestJItem.fields.body);
+  const ebody = await markdownToHtml(latestEItem.fields.body);
+  const jitems = await getAllPublications();
+  const eitems = await getEnAllPublications();
+  return {
+    props: { jbody: jbody, ebody: ebody, jtitle: latestJItem.fields.title, etitle: latestEItem.fields.title, jitems: jitems, eitems: eitems },
+  };
 }
-
-export default Index;

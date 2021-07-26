@@ -54,6 +54,38 @@ export async function getLatestPublicationYear() {
   return res.items[0].fields.year;
 }
 
+export async function getEnAllPublications() {
+  const res = await client.getEntries({
+    content_type: "publicationsEn",
+    order: "-fields.year",
+  });
+  return res.items;
+}
+
+export async function getEnPublication(year) {
+  const res = await client.getEntries({
+    content_type: "publicationsEn",
+    "fields.year": year,
+  });
+  return res.items[0];
+}
+
+export async function getEnLatestPublication() {
+  const res = await client.getEntries({
+    content_type: "publicationsEn",
+    order: "-fields.year",
+  });
+  return res.items[0];
+}
+
+export async function getEnLatestPublicationYear() {
+  const res = await client.getEntries({
+    content_type: "publicationsEn",
+    order: "-fields.year",
+  });
+  return res.items[0].fields.year;
+}
+
 export async function getPage(slug) {
   const res = await client.getEntries({
     content_type: "pages",
