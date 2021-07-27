@@ -1,6 +1,5 @@
 #!/bin/bash
 
-git pull origin main
 yarn install --production
 
 if [ -z "`ps aux | grep "next build" | grep -v grep`" ]; then
