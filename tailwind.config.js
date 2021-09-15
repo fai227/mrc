@@ -14,16 +14,7 @@ module.exports = {
         "900px": "900px",
       },
       fontFamily: {
-        sans: [
-          '"Hiragino Kaku Gothic Pro"',
-          '"ヒラギノ角ゴ Pro"',
-          '"Yu Gothic Medium"',
-          '"游ゴシック Medium"',
-          "YuGothic",
-          '"游ゴシック体"',
-          '"メイリオ"',
-          "sans-serif",
-        ],
+        sans: ["Noto Sans JP", "sans-serif"],
       },
     },
   },
