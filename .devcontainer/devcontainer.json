@@ -1,0 +1,20 @@
+{
+  "name": "mrc",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "mrc",
+  "workspaceFolder": "/myapp/mrc",
+  "settings": {},
+  "extensions": [
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "oderwat.indent-rainbow",
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one"
+  ]
+  // "forwardPorts": [],
+  // "runServices": [],
+  // "shutdownAction": "none",
+  // "postCreateCommand": "apt-get update && apt-get install -y curl",
+  // "remoteUser": "vscode"
+}

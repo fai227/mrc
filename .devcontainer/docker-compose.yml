@@ -1,0 +1,11 @@
+version: '3'
+services:
+  mrc:
+    image: node:latest
+    command: sleep infinity
+    ports:
+      - 3000:3000
+    volumes:
+      - ../:/myapp/mrc:cached
+      - ../src:/myapp/mrc/src
+      - /myapp/mrc/node_modules
