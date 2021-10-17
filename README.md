@@ -160,7 +160,7 @@ sudo yum repolist all
 
 # Listen 80 ディレクティブを見つけて、その後ろに下記を追加する
 <VirtualHost *:80>
-  DocumentRoot "/var/www/html/out"
+  DocumentRoot "/var/www/html/mrc"
   ServerName "doshisha.ac.jp"
   ServerAlias "mrc.doshisha.ac.jp"
 </VirtualHost>
