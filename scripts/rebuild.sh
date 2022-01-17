@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yarn install --production
+yarn install
 
 if [ -z "`ps aux | grep "next build" | grep -v grep`" ]; then
   yarn build
