@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ["./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     minWidth: {
       full: "900px",
@@ -17,9 +16,6 @@ module.exports = {
         sans: ["Noto Sans JP", "sans-serif"],
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };
