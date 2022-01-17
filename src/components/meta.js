@@ -33,7 +33,6 @@ function Meta() {
       <meta property="og:title" content={site_title} />
       <meta property="og:description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
-      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
     </Head>
   );
 }

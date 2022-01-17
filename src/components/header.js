@@ -1,5 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
+import Image from "next/image";
 
 import Container from "../components/container";
 
@@ -52,35 +53,35 @@ export default function Header() {
       </div>
       {/* Header Menu */}
       <Container>
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center">
           <Link href="/">
             <a>
-              <img src={t.logo} className="py-3 mx-2" alt="logo" width="337px" height="26px" />
+              <Image src={t.logo} className="mx-2" alt="logo" width={337} height={26} />
             </a>
           </Link>
           <Link href="/about">
             <a className="hover:opacity-50">
-              <img src={t.headerMenu.about} alt="about" width="110px" height="52px" />
+              <Image src={t.headerMenu.about} alt="about" width={110} height={52} />
             </a>
           </Link>
           <Link href="/research">
             <a className="hover:opacity-50">
-              <img src={t.headerMenu.research} alt="research" width="110px" height="52px" />
+              <Image src={t.headerMenu.research} alt="research" width={110} height={52} />
             </a>
           </Link>
           <Link href="/topics">
             <a className="hover:opacity-50">
-              <img src={t.headerMenu.activities} alt="topics" width="110px" height="52px" />
+              <Image src={t.headerMenu.activities} alt="topics" width={110} height={52} />
             </a>
           </Link>
           <Link href="/publications">
             <a className="hover:opacity-50">
-              <img src={t.headerMenu.publications} alt="publications" width="110px" height="52px" />
+              <Image src={t.headerMenu.publications} alt="publications" width={110} height={52} />
             </a>
           </Link>
           <Link href="/misc">
             <a className="hover:opacity-50">
-              <img src={t.headerMenu.misc} alt="misc" width="110px" height="52px" />
+              <Image src={t.headerMenu.misc} alt="misc" width={110} height={52} />
             </a>
           </Link>
         </div>

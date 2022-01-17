@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
 
 import { getPage } from "../lib/api";
@@ -17,7 +18,7 @@ export default function Home({ jbody, ebody }) {
       <Head>
         <title>{site_title}</title>
       </Head>
-      <img src="/banner.png" alt="banner" width="900px" height="303px" className="mb-6" />
+      <Image src="/banner.png" alt="banner" width={900} height={303} className="mb-6" />
 
       <Content body={body} />
     </Layout>
