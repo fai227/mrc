@@ -30,7 +30,7 @@ export default function Index({ jbody, ebody, jtitle, etitle, jitems, eitems }) 
           <Content body={body} />
         </div>
         <div className="border-l">
-          <Sidebar items={items} title={sidebar_title} />
+          <Sidebar items={items} title={sidebar_title} type="publications" />
         </div>
       </div>
     </Layout>
