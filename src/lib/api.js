@@ -9,15 +9,23 @@ const client = createClient({
 export async function getAllTopics() {
   const res = await client.getEntries({
     content_type: "topics",
-    order: "-fields.date",
+    order: "-fields.year",
   });
   return res.items;
 }
 
-export async function getTopics(id) {
+export async function getTopic(year) {
+  const res = await client.getEntries({
+    content_type: "topic",
+    "fields.year": year,
+  });
+  return res.items[0];
+}
+
+export async function getLatestTopic() {
   const res = await client.getEntries({
     content_type: "topics",
-    "sys.id": id,
+    order: "-fields.year",
   });
   return res.items[0];
 }
