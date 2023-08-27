@@ -26,8 +26,8 @@ export default function Home({ jbody, ebody }) {
 }
 
 export async function getStaticProps() {
-  const jitem = await getPage("research");
-  const eitem = await getPage("research-en");
+  const jitem = await getPage("top-page");
+  const eitem = await getPage("top-page-en");
   const jbody = await markdownToHtml(jitem.fields.body);
   const ebody = await markdownToHtml(eitem.fields.body);
   return { props: { jbody: jbody, ebody: ebody } };

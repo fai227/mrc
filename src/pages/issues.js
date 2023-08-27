@@ -8,11 +8,10 @@ import Layout from "../components/layout";
 import Content from "../components/content";
 import PageTitle from "../components/pageTitle";
 
-export default function Research({ jtitle, etitle, jbody, ebody }) {
+export default function Issues({ body }) {
   const { locale } = useRouter();
-  const body = locale === "ja-JP" ? jbody : ebody;
   const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
-  const page_title = locale === "ja-JP" ? jtitle : etitle;
+  const page_title = locale === "ja-JP" ? "研究課題" : "Issues";
 
   return (
     <Layout>
@@ -28,9 +27,7 @@ export default function Research({ jtitle, etitle, jbody, ebody }) {
 }
 
 export async function getStaticProps() {
-  const jitem = await getPage("research");
-  const eitem = await getPage("research-en");
-  const jbody = await markdownToHtml(jitem.fields.body);
-  const ebody = await markdownToHtml(eitem.fields.body);
-  return { props: { jtitle: jitem.fields.title, etitle: eitem.fields.title, jbody: jbody, ebody: ebody } };
+  const jitem = await getPage("issue");
+  const body = await markdownToHtml(jitem.fields.body);
+  return { props: { body: body } };
 }
