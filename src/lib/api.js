@@ -16,7 +16,7 @@ export async function getAllTopics() {
 
 export async function getTopic(year) {
   const res = await client.getEntries({
-    content_type: "topic",
+    content_type: "topics",
     "fields.year": year,
   });
   return res.items[0];
