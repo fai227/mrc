@@ -9,7 +9,7 @@ const en = {
   logo: "/header/en/logo.png",
   headerMenu: {
     about: "/header/en/about.png",
-    research: "/header/en/research.png",
+    issues: "/header/en/issues.png",
     activities: "/header/en/activities.png",
     publications: "/header/en/publications.png",
     misc: "/header/en/misc.png",
@@ -20,7 +20,7 @@ const ja = {
   logo: "/header/ja/logo.png",
   headerMenu: {
     about: "/header/ja/about.png",
-    research: "/header/ja/research.png",
+    issues: "/header/ja/issues.png",
     activities: "/header/ja/activities.png",
     publications: "/header/ja/publications.png",
     misc: "/header/ja/misc.png",
@@ -64,9 +64,9 @@ export default function Header() {
               <Image src={t.headerMenu.about} alt="about" width={110} height={52} />
             </a>
           </Link>
-          <Link href="/research">
+          <Link href="/issues">
             <a className="hover:opacity-50">
-              <Image src={t.headerMenu.research} alt="research" width={110} height={52} />
+              <Image src={t.headerMenu.issues} alt="issues" width={110} height={52} />
             </a>
           </Link>
           <Link href="/topics">
