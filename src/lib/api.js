@@ -54,14 +54,6 @@ export async function getLatestPublication() {
   return res.items[0];
 }
 
-export async function getLatestPublicationYear() {
-  const res = await client.getEntries({
-    content_type: "publications",
-    order: "-fields.year",
-  });
-  return res.items[0].fields.year;
-}
-
 export async function getEnAllPublications() {
   const res = await client.getEntries({
     content_type: "publicationsEn",

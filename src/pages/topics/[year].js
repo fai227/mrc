@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 
-import { getAllTopcis, getTopic, getEnAllPublications, getEnPublication } from "../../lib/api";
+import { getAllTopics, getTopic } from "../../lib/api";
 import { J_SITE_TITLE, E_SITE_TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import Layout from "../../components/layout";
@@ -36,7 +36,7 @@ export default function Topic({ items, jtitle, etitle, body }) {
 }
 
 export async function getStaticPaths({ locales }) {
-  const items = await getAllTopcis();
+  const items = await getAllTopics();
   const paths = [];
   items.map((item) => {
     paths.push({
