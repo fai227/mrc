@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 
-import { getAllTopics, getTopic } from "../../lib/api";
+import { getLatestActivity, getAllActivities } from "../../lib/api";
 import { J_SITE_TITLE, E_SITE_TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import Layout from "../../components/layout";
@@ -9,11 +9,11 @@ import Content from "../../components/content";
 import PageTitle from "../../components/pageTitle";
 import Sidebar from "../../components/sidebar";
 
-export default function Topic({ items, jtitle, etitle, body }) {
+function Index({ body, jtitle, etitle, items }) {
   const { locale } = useRouter();
   const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
   const page_title = locale === "ja-JP" ? jtitle : etitle;
-  const sidebar_title = locale === "ja-JP" ? "研究活動" : "Topics";
+  const sidebar_title = locale === "ja-JP" ? "研究活動" : "Activities";
 
   return (
     <Layout>
@@ -28,33 +28,20 @@ export default function Topic({ items, jtitle, etitle, body }) {
           <Content body={body} />
         </div>
         <div className="border-l">
-          <Sidebar items={items} title={sidebar_title} type="topics" />
+          <Sidebar items={items} title={sidebar_title} type="activities" />
         </div>
       </div>
     </Layout>
   );
 }
 
-export async function getStaticPaths({ locales }) {
-  const items = await getAllTopics();
-  const paths = [];
-  items.map((item) => {
-    paths.push({
-      params: { year: item.fields.year.toString() },
-      locale: "ja-JP",
-    });
-    paths.push({
-      params: { year: item.fields.year.toString() },
-      locale: "en",
-    });
-  });
-
-  return { paths, fallback: false };
+export async function getStaticProps() {
+  const latestItem = await getLatestActivity();
+  const body = await markdownToHtml(latestItem.fields.body);
+  const items = await getAllActivities();
+  return {
+    props: { body: body, jtitle: latestItem.fields.title, etitle: latestItem.fields.etitle, items: items },
+  };
 }
 
-export async function getStaticProps({ params }) {
-  const items = await getAllTopics();
-  const item = await getTopic(params.year);
-  const body = await markdownToHtml(item.fields.body);
-  return { props: { items: items, jtitle: item.fields.title, etitle: item.fields.etitle, body: body } };
-}
+export default Index;

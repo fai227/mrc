@@ -69,9 +69,9 @@ export default function Header() {
               <Image src={t.headerMenu.issues} alt="issues" width={110} height={52} />
             </a>
           </Link>
-          <Link href="/topics">
+          <Link href="/activities">
             <a className="hover:opacity-50">
-              <Image src={t.headerMenu.activities} alt="topics" width={110} height={52} />
+              <Image src={t.headerMenu.activities} alt="activities" width={110} height={52} />
             </a>
           </Link>
           <Link href="/publications">
