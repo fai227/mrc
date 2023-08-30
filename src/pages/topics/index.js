@@ -6,7 +6,6 @@ import { J_SITE_TITLE, E_SITE_TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import Layout from "../../components/layout";
 import Content from "../../components/content";
-import List from "../../components/list";
 import PageTitle from "../../components/pageTitle";
 import Sidebar from "../../components/sidebar";
 
@@ -32,7 +31,6 @@ function Index({ body, jtitle, etitle, items }) {
           <Sidebar items={items} title={sidebar_title} type="topics" />
         </div>
       </div>
-      <List items={items} />
     </Layout>
   );
 }
