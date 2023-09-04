@@ -30,6 +30,23 @@ export async function getLatestActivity() {
   return res.items[0];
 }
 
+export async function getAllActivitiesOthers(year) {
+  const res = await client.getEntries({
+    content_type: "activitiesOthers",
+    "fields.year": year,
+    order: "-fields.date",
+  });
+  return res.items;
+}
+
+export async function getActivitiesOthers(id) {
+  const res = await client.getEntries({
+    content_type: "activitiesOthers",
+    "sys.id": id,
+  });
+  return res.items[0];
+}
+
 export async function getAllPublications() {
   const res = await client.getEntries({
     content_type: "publications",
