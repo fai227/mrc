@@ -30,7 +30,7 @@ export default function Publication({ jitems, eitems, jtitle, etitle, jbody, ebo
           <Content body={body} />
         </div>
         <div className="border-l">
-          <Sidebar items={items} title={sidebar_title} />
+          <Sidebar items={items} title={sidebar_title} type="publications" />
         </div>
       </div>
     </Layout>

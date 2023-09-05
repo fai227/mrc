@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { useRouter } from "next/dist/client/router";
 
-import { getTopics, getAllTopics } from "../../lib/api";
-import { J_SITE_TITLE, E_SITE_TITLE } from "../../lib/constants";
-import markdownToHtml from "../../lib/markdownToHtml";
-import Layout from "../../components/layout";
-import Content from "../../components/content";
-import PageTitle from "../../components/pageTitle";
+import { getAllActivitiesOthers, getActivitiesOthers } from "../../../lib/api";
+import { J_SITE_TITLE, E_SITE_TITLE } from "../../../lib/constants";
+import markdownToHtml from "../../../lib/markdownToHtml";
+import Layout from "../../../components/layout";
+import Content from "../../../components/content";
+import PageTitle from "../../../components/pageTitle";
 
-export default function Publication({ title, etitle, body }) {
+export default function Activity({ title, etitle, body }) {
   const { locale } = useRouter();
   const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
   const page_title = locale === "ja-JP" ? title : etitle;
@@ -27,15 +27,15 @@ export default function Publication({ title, etitle, body }) {
 }
 
 export async function getStaticPaths() {
-  const items = await getAllTopics();
+  const items = await getAllActivitiesOthers();
   const paths = [];
   items.map((item) => {
     paths.push({
-      params: { id: item.sys.id },
+      params: { year: item.fields.year.toString(), id: item.sys.id },
       locale: "ja-JP",
     });
     paths.push({
-      params: { id: item.sys.id },
+      params: { year: item.fields.year.toString(), id: item.sys.id },
       locale: "en",
     });
   });
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const item = await getTopics(params.id);
+  const item = await getActivitiesOthers(params.id);
   const body = await markdownToHtml(item.fields.body);
   return { props: { title: item.fields.title, etitle: item.fields.etitle, body: body } };
 }
