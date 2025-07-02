@@ -22,7 +22,7 @@ jobs:
       - uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_CHANNEL: "website-mrc"
+          SLACK_CHANNEL: "app-website-mrc"
           SLACK_ICON: https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2021-07-06/2257469713729_06357f0ef4a522dfb049_72.png
           SLACK_USERNAME: "MRC GitHub Actions"
           SLACK_MESSAGE: "GitHub Actions が完了し、MRC（モビリティ研究センター）HP が更新されました！"
