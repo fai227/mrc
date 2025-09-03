@@ -35,7 +35,7 @@ export default function Header() {
       {/* Global Nav */}
       <div className="bg-headerbg text-white">
         <Container>
-          <div className="flex flex-row-reverse py-3 text-xs mb-4">
+          <div className="flex flex-row-reverse py-3 text-sm mb-4">
             <a href="https://www.doshisha.ac.jp/" target="_blank" rel="noopener noreferrer" className="mx-3 hover:underline">
               {t.globalNav.univ}
             </a>

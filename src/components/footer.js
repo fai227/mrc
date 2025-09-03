@@ -36,7 +36,7 @@ function Footer() {
   const t = useRouter().locale === "ja-JP" ? ja : en;
 
   return (
-    <footer className="mt-8 pt-8 pb-32 bg-headerbg text-white text-xs">
+    <footer className="mt-8 pt-8 pb-32 bg-headerbg text-white text-sm">
       <Container>
         <div className="grid grid-cols-3">
           <div className="col-span-2 mx-2">{t.contact}</div>

@@ -5,7 +5,7 @@ import Footer from "./footer";
 
 function Layout({ children }) {
   return (
-    <div className="min-w-full text-sm">
+    <div className="min-w-full text-base">
       <div className="min-h-screen">
         <main>
           <Meta />
