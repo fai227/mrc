@@ -13,7 +13,7 @@ export default function Index({ jbody, ebody, jtitle, etitle, jitems, eitems }) 
   const { locale } = useRouter();
   const site_title = locale === "ja-JP" ? J_SITE_TITLE : E_SITE_TITLE;
   const page_title = locale === "ja-JP" ? jtitle : etitle;
-  const sidebar_title = locale === "ja-JP" ? "研究発表" : "Publications";
+  const sidebar_title = locale === "ja-JP" ? "研究発表一覧" : "Publication List";
   const body = locale === "ja-JP" ? jbody : ebody;
   const items = locale === "ja-JP" ? jitems : eitems;
 
@@ -25,11 +25,11 @@ export default function Index({ jbody, ebody, jtitle, etitle, jitems, eitems }) 
         </title>
       </Head>
       <PageTitle title={page_title} />
-      <div className="grid grid-cols-5">
-        <div className="col-span-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="md:col-span-3">
           <Content body={body} />
         </div>
-        <div className="border-l">
+        <div className="border-t pt-6 md:border-t-0 md:border-l px-4 md:pt-0 md:pl-6">
           <Sidebar items={items} title={sidebar_title} type="publications" />
         </div>
       </div>
