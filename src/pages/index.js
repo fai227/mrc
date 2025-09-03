@@ -18,8 +18,15 @@ export default function Home({ jbody, ebody }) {
       <Head>
         <title>{site_title}</title>
       </Head>
-      <Image src="/banner.png" alt="banner" width={900} height={303} className="mb-6" />
-
+      <Image
+        src="/banner.png"
+        alt="banner"
+        width={900}
+        height={303}
+        className="mb-6 w-full h-auto"
+        sizes="(min-width: 900px) 900px, 100vw"
+        priority
+      />
       <Content body={body} />
     </Layout>
   );
