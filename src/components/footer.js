@@ -36,13 +36,15 @@ function Footer() {
   const t = useRouter().locale === "ja-JP" ? ja : en;
 
   return (
-    <footer className="mt-8 pt-8 pb-32 bg-headerbg text-white text-xs">
+    <footer className="mt-8 pt-8 pb-8 bg-headerbg text-white text-sm">
       <Container>
-        <div className="grid grid-cols-3">
-          <div className="col-span-2 mx-2">{t.contact}</div>
-          <div className="text-right mx-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-y-0">
+          <div className="md:col-span-2 mx-2">{t.contact}</div>
+          <div className="mx-2 flex flex-col items-center md:items-end text-center md:text-right">
             <ScrollUp />
-            <small>&copy; Doshisha University All Rights Reserved.</small>
+            <small className="mt-2">
+              &copy; Doshisha University All Rights Reserved.
+            </small>
           </div>
         </div>
       </Container>

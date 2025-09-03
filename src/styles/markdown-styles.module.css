@@ -22,15 +22,15 @@
 }
 
 .markdown h2 {
-  @apply text-lg font-bold px-1 py-2 border-b-2 border-gray-600 rounded;
+  @apply text-xl font-bold px-1 py-2 border-b-2 border-gray-600 rounded;
 }
 
 .markdown h3 {
-  @apply text-base font-medium px-2 py-1 border-l-2 border-gray-300;
+  @apply text-lg font-medium px-2 py-1 border-l-2 border-gray-300;
 }
 
 .markdown h4 {
-  @apply text-base font-medium px-2 py-1;
+  @apply text-lg font-medium px-2 py-1;
 }
 
 .markdown p {
@@ -54,13 +54,20 @@
 }
 
 .markdown table {
-  @apply max-w-full table-auto border-collapse;
+  @apply block max-w-full overflow-x-auto border-collapse table-auto;
+  width: max-content;
+  -webkit-overflow-scrolling: touch;
+}
+
+.markdown th,
+.markdown td {
+  @apply whitespace-nowrap align-top px-4 py-2;
 }
 
 .markdown tr {
   @apply border-b border-gray-200;
 }
 
-.markdown td {
-  @apply px-4 py-2;
+.markdown td a {
+  @apply no-underline;
 }

@@ -5,7 +5,7 @@ import markdownStyles from "../styles/markdown-styles.module.css";
 export default function Sidebar({ items, title, type }) {
   return (
     <>
-      <h2 className="text-lg font-bold m-2 p-2">{title}</h2>
+      <h2 className="text-xl font-bold m-2 p-2">{title}</h2>
       <div className={markdownStyles["markdown"]}>
         <ul className="px-2">
           {items.map((item) => (
