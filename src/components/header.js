@@ -35,18 +35,18 @@ export default function Header() {
       {/* Global Nav */}
       <div className="bg-headerbg text-white">
         <Container>
-          <div className="flex flex-row-reverse py-3 text-sm mb-4">
-            <a href="https://www.doshisha.ac.jp/" target="_blank" rel="noopener noreferrer" className="mx-3 hover:underline">
+          <div className="flex flex-row-reverse items-center gap-x-3 py-3 text-sm mb-4 overflow-x-auto whitespace-nowrap">
+            <a href="https://www.doshisha.ac.jp/" target="_blank" rel="noopener noreferrer" className="hover:underline shrink-0">
               {t.globalNav.univ}
             </a>
             <Link href="/privacy">
-              <a className="mx-3 hover:underline">{t.globalNav.privacy}</a>
+              <a className="hover:underline shrink-0">{t.globalNav.privacy}</a>
             </Link>
             <Link href="/sitemap">
-              <a className="mx-3 hover:underline">{t.globalNav.sitemap}</a>
+              <a className="hover:underline shrink-0">{t.globalNav.sitemap}</a>
             </Link>
             <Link href="/">
-              <a className="mx-3 hover:underline">{t.globalNav.home}</a>
+              <a className="hover:underline shrink-0">{t.globalNav.home}</a>
             </Link>
           </div>
         </Container>
