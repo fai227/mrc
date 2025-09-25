@@ -167,6 +167,30 @@ sudo yum repolist all
 ```
 
 ```sh
+# /etc/httpd/conf/httpd-le-ssl.conf 
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+  DocumentRoot "/var/www/html/mrc"
+  ServerName "doshisha.ac.jp"
+  ServerAlias "mrc.doshisha.ac.jp"
+
+  ProxyPreserveHost On
+  ProxyPass / http://127.0.0.1:3000/
+  ProxyPassReverse / http://127.0.0.1:3000/
+
+  SSLCertificateFile /etc/letsencrypt/live/mrc.doshisha.ac.jp/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/mrc.doshisha.ac.jp/privkey.pem
+  
+  Protocols h2 http/1.1
+
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  Include /etc/letsencrypt/options-ssl-apache.conf
+</VirtualHost>
+</IfModule>
+```
+
+```sh
 sudo systemctl restart httpd
 ```
 
