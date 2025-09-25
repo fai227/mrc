@@ -72,7 +72,7 @@ git clone https://github.com/Kenny-NISLab/mrc
 
 ```sh
 # /var/www/html/mrc/.env.local
-
+NUXT_PUBLIC_GA_ID=""
 NEXT_PUBLIC_CF_SPACE_ID=""
 NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN=""
 ```
@@ -221,6 +221,7 @@ HP の更新が完了すると、 Slack に通知が届くようになってい�
 ### Create `.env.local` file
 
 ```.env.local
+NUXT_PUBLIC_GA_ID=""
 NEXT_PUBLIC_CF_SPACE_ID=""
 NEXT_PUBLIC_CF_DELIVERY_ACCESS_TOKEN=""
 ```

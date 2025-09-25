@@ -18,6 +18,7 @@ export default function Home({ jbody, ebody }) {
       <Head>
         <title>{site_title}</title>
       </Head>
+      <h1 style={{ display: "none" }}>{site_title}</h1>
       <picture>
         <source
           srcSet="/small_banner.png"
